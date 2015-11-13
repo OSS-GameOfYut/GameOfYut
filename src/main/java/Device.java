@@ -18,6 +18,8 @@ public class Device {
         count = num;
     }
 
+
+
     public void move(int result) {
         index += result;
     }
