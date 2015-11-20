@@ -10,8 +10,6 @@ public class Yut {
     private final int numOfDevice = 1;
     private ArrayList<Device> device;
 
-// player 와 computer 어떻게 표현해야 되는지
-
 
     // Initialize Yut Matrix
     public Yut() {
@@ -32,8 +30,6 @@ public class Yut {
     public void start() {
         clean();
         System.out.println("Play Game of Yut !!");
-
-
 
         int num;
         Scanner in = new Scanner(System.in);
@@ -77,6 +73,8 @@ public class Yut {
 
 
     }
+
+
 
     private void showBoard(Device user, Device com) {
 

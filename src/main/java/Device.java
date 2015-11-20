@@ -40,4 +40,9 @@ public class Device {
         move(yut);
     }
 
+    // 객체가 말을 잡을수있으면 true 아니면 false를 return
+    private boolean isCatch(Device d2) {
+        return this.locate == d2.locate;
+    }
+
 }
