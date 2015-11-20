@@ -6,30 +6,31 @@ import java.util.*;
 public class Yut {
     private String[] yutMatrix;
     private String[] yut = {"DOE", "GAE", "GIRL", "YUT", "MOE"};
-    private String typeOfPlayer = "o ";
-    private final int playerNum = 2;
     private final int raceRoom = 10;
+
+    private final int numOfDevice = 1;
+
 // player 와 computer 어떻게 표현해야 되는지
 
 
     // Initialize Yut Matrix
     public Yut() {
         yutMatrix = new String[raceRoom]; // Basic 2 Line 10 room Yut race
-        for (int i = 0 ; i < yutMatrix.length ; i++)
-            yutMatrix[i] = "__";
+        for (int i = 0; i < yutMatrix.length; i++)
+            yutMatrix[i] = "__ ";
 
         yutMatrix[0] = "ox";   // 이런식으로 표현해야되는데 일단 고민
-    }
 
-    // Show Yut Matrix
-    public void show() {
-        for(int i=0 ; i<yutMatrix.length ; i++)
-            System.out.print(yutMatrix[i] + " ");
-//                if(yutMatrix[i][j] == 1) // 표현 방식 바꾸려면 이렇게도 가능한데 어떤 거 쓸지는 고민
-//                    System.out.print("X");
-//                else if(yutMatrix[i][j] == 0)
-//                    System.out.print("O");
-        System.out.println();
+
+        ArrayList<Device> device = new ArrayList<Device>(numOfDevice * 2);
+
+        for (int i = 0; i < device.size(); i++) {
+            if (i <= device.size()/2)
+                device.add(new Device("U", i));
+            else
+                device.add(new Device("C", i));
+        }
+
 
     }
 
@@ -38,15 +39,13 @@ public class Yut {
         clean();
         System.out.println("Play Game of Yut !!");
 
-        Device user, com;
-        user = new Device();
-        com = new Device();
+
 
         int num;
         Scanner in = new Scanner(System.in);
         num=in.nextInt();
-
-        while(num!=0){
+/*
+        while(num != 0){
 
             user.input(throwYut());
 
@@ -58,9 +57,9 @@ public class Yut {
 
             showBoard(user, com);
 
-            num=in.nextInt();
+            num = in.nextInt();
         }
-
+*/
 //        show();
 //
 //        // Player or Compute Two Hores Goal in is Game Over
@@ -87,11 +86,11 @@ public class Yut {
 
     private void showBoard(Device user, Device com) {
 
-        for(int i=1; i<20; i++){
-            if(i==user.getIndex() && i==com.getIndex()) System.out.println("x");
-            else if(i==user.getIndex()) System.out.print("u");
-            else if(i==com.getIndex()) System.out.print("c");
-            else System.out.print("_");
+        for(int i = 1; i < 20; i++){
+            if(i==user.getIndex() && i==com.getIndex()) System.out.println("x ");
+            else if(i==user.getIndex()) System.out.print("u ");
+            else if(i==com.getIndex()) System.out.print("c ");
+            else System.out.print("_ ");
         }System.out.println();
         //말 업고 잡는 코드 구현은 Yut 클래스 안에서 하는게 좋겠습니다.
     }
@@ -126,5 +125,4 @@ public class Yut {
         for (int i=0; i<30; i++)
             System.out.println();
     }
-
 }
