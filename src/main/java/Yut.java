@@ -4,34 +4,28 @@ import java.util.*;
  * Basic Yut 11.13
  */
 public class Yut {
-    private String[] yutMatrix;
+
     private String[] yut = {"DOE", "GAE", "GIRL", "YUT", "MOE"};
     private final int raceRoom = 10;
-
     private final int numOfDevice = 1;
+    private ArrayList<Device> device;
 
 // player 와 computer 어떻게 표현해야 되는지
 
 
     // Initialize Yut Matrix
     public Yut() {
-        yutMatrix = new String[raceRoom]; // Basic 2 Line 10 room Yut race
-        for (int i = 0; i < yutMatrix.length; i++)
-            yutMatrix[i] = "__ ";
+        device = new ArrayList<Device>(numOfDevice * 2);
 
-        yutMatrix[0] = "ox";   // 이런식으로 표현해야되는데 일단 고민
-
-
-        ArrayList<Device> device = new ArrayList<Device>(numOfDevice * 2);
-
-        for (int i = 0; i < device.size(); i++) {
+        // type과 type에 따른 index(몇번 말인지)를 정해 device객체를 생성
+        int userIndex = 0;
+        int comIndex = 0;
+        for (int i = 0 ; i < device.size(); i++) {
             if (i <= device.size()/2)
-                device.add(new Device("U", i));
+                device.add(new Device("U", userIndex++));
             else
-                device.add(new Device("C", i));
+                device.add(new Device("C", comIndex++));
         }
-
-
     }
 
     // Game start
