@@ -84,6 +84,7 @@ public class Yut {
 
 
     }
+
     private void showBoard(Device user, Device com) {
 
         for(int i=1; i<20; i++){
@@ -94,6 +95,7 @@ public class Yut {
         }System.out.println();
         //말 업고 잡는 코드 구현은 Yut 클래스 안에서 하는게 좋겠습니다.
     }
+
     // Throw yut
     public int throwYut() {
         Random r = new Random();

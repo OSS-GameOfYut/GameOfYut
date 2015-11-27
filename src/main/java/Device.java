@@ -14,6 +14,7 @@ public class Device {
         index = 0;
         type = "__";
     }
+
     void move(int result) {
 
         System.out.println("moved like "+result);
